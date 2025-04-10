@@ -1,18 +1,17 @@
-from flask import Flask, request,jsonify,app,render_template
-from flask import Response
 import pickle
+from flask import Flask, request,jsonify,app,render_template
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 
-app= Flask(__name__)
+application= Flask(__name__)
+app=application
 
-scaler=pickle.load(open("/workspaces/Solar-Power-Pridiction/models/solar_power_scaler.pkl", "rb"))
-model = pickle.load(open("/workspaces/Solar-Power-Pridiction/models/solar_power_model.pkl", "rb"))
+scaler=pickle.load(open("models/solar_power_scaler.pkl", "rb"))
+model = pickle.load(open("models/solar_power_model.pkl", "rb"))
 
 ## Route for homepage
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -40,8 +39,6 @@ def predict_datapoint():
         aoi = float(request.form.get("aoi")) 
         zenith = float(request.form.get("zenith")) 
         azimuth = float(request.form.get("azimuth"))
-         
-
 
         new_data=scaler.transform([[temp,Rh,mslp,tp,sa,tcc,hcc,mcc,lc,srb,wd10,ws80,wd80,ws900,wd900,wg,aoi,zenith,azimuth]])
         result=model.predict(new_data)
