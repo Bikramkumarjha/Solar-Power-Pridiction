@@ -1,0 +1,13 @@
+prefix=/workspaces/Solar-Power-Pridiction/.conda
+exec_prefix=/workspaces/Solar-Power-Pridiction/.conda
+libdir=/workspaces/Solar-Power-Pridiction/.conda/lib
+sharedlibdir=/workspaces/Solar-Power-Pridiction/.conda/lib
+includedir=/workspaces/Solar-Power-Pridiction/.conda/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

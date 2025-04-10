@@ -1,0 +1,11 @@
+prefix=/workspaces/Solar-Power-Pridiction/.conda
+exec_prefix=/workspaces/Solar-Power-Pridiction/.conda
+libdir=/workspaces/Solar-Power-Pridiction/.conda/lib
+includedir=/workspaces/Solar-Power-Pridiction/.conda/include
+
+Name: uuid
+Description: Universally unique id library
+Version: 2.32.1
+Requires:
+Cflags: -I${includedir}/uuid
+Libs: -L${libdir} -luuid
