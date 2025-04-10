@@ -20,7 +20,7 @@ def index():
 
 ## Route for Single data point prediction
 @app.route('/predictdata',methods=['GET','POST'])
-def predict_datapoint()
+def predict_datapoint():
     if request.method=='POST':
         temp=int(request.form.get("temp"))
         Rh=float(request.form.get("Rh"))
@@ -44,7 +44,7 @@ def predict_datapoint()
         generated_pow = float(request.form.get("generated_pow")) 
 
 
-        new_data=scaler.transform([[temperature, Relative_Humidity,mean_sea_level_pressure, total_precipitation,snowfall_amount,total_cloud_cover,high_cloud_cover_high_cld_lay,medium_cloud_cover_mid_cld_lay,low_cloud ,shortwave_radiation_backwards,wind_direction_10m, wind_speed_80m,wind_direction_80m, wind_speed_900mb, wind_direction_900mb, wind_gust_10m_above_gnd,angle_of_incidence,zenith,azimuth,generated_power_kW]])
+        new_data=scaler.transform([[temp,Rh,mslp,tp,sa,tcc,hcc,mcc,lc,srb,wd10,ws80,wd80,ws900,ws900,wg,aoi,zenith,azimuth,generated_pow]])
         result=model.predict(new_data)
             
         return render_template('home.html',result=result[0])
