@@ -32,7 +32,6 @@ def predict_datapoint()
         medium_cloud_cover_mid_cld_lay = float(request.form.get("medium cloud cover mid cld lay"))
         low_cloud = float(request.form.get("low cloud cover low cld lay"))
         shortwave_radiation_backwards = float(request.form.get("shortwave radiation backwards"))
-        wind_speed_10m= float(request.form.get(" wind speed 10 m above gnd "))
         wind_direction_10m = float(request.form.get("wind direction 10 m above gnd "))
         wind_speed_80m = float(request.form.get("  wind speed 80 m abovr gnd"))
         wind_direction_80m = float(request.form.get(" wind direction 80 m above gnd "))
@@ -45,7 +44,7 @@ def predict_datapoint()
         generated_power_kW = float(request.form.get(" generation_power_kw ")) 
 
 
-        new_data=scaler.transform([[temperature, Relative_Humidity,mean_sea_level_pressure, total_precipitation,snowfall_amount,total_cloud_cover,high_cloud_cover_high_cld_lay,medium_cloud_cover_mid_cld_lay,low_cloud ,shortwave_radiation_backwards,wind_speed_10m, wind_direction_10m, wind_speed_80m, wind_speed_900mb, wind_direction_900mb, wind_gust_10m_above_gnd,angle_of_incidence,zenith,azimuth,generated_power_kW]])
+        new_data=scaler.transform([[temperature, Relative_Humidity,mean_sea_level_pressure, total_precipitation,snowfall_amount,total_cloud_cover,high_cloud_cover_high_cld_lay,medium_cloud_cover_mid_cld_lay,low_cloud ,shortwave_radiation_backwards,wind_direction_10m, wind_speed_80m, wind_speed_900mb, wind_direction_900mb, wind_gust_10m_above_gnd,angle_of_incidence,zenith,azimuth,generated_power_kW]])
         result=model.predict(new_data)
             
          return render_template('home.html',result=result[0])
