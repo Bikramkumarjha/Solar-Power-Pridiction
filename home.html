@@ -1,0 +1,40 @@
+<html>
+<body>
+    <div class="login">
+       <h1>SOLAR POWER Prediction</h1>
+   
+        <!-- Main Input For Receiving Query to our ML -->
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+         <input type="text" name="temperature" placeholder="temperature" required="required" /><br>
+           <input type="text" name="Relative_Humidity" placeholder="Relative_Humidity" required="required" /><br>
+           <input type="text" name="mean_sea_level_pressure" placeholder="mean_sea_level_pressure" required="required" /><br>
+           <input type="text" name="total_precipitation" placeholder="total_precipitation" required="required" /><br>
+           <input type="text" name=" snowfall_amount" placeholder=" snowfall_amount" required="required" /><br>
+           <input type="text" name="" placeholder="FFMC" required="required" /><br>
+           <input type="text" name="total_cloud_cover" placeholder="total_cloud_cover" required="required" /><br>
+           <input type="text" name="high_cloud_cover_high_cld_lay" placeholder="high_cloud_cover_high_cld_lay" required="required" /><br>
+           <input type="text" name="medium_cloud_cover_mid_cld_lay" placeholder="medium_cloud_cover_mid_cld_lay" required="required" /><br>
+           <input type="text" name="low_cloud" placeholder="low_cloud" required="required" /><br>
+           <input type="text" name="shortwave_radiation_backwards" placeholder="shortwave_radiation_backwards" required="required" /><br>
+           <input type="text" name="wind_speed_10m" placeholder="wind_speed_10m" required="required" /><br>
+           <input type="text" name="wind_direction_10m" placeholder="wind_direction_10m" required="required" /><br>
+           <input type="text" name="wind_speed_80m " placeholder="wind_speed_80m " required="required" /><br>
+           <input type="text" name=" wind_direction_80m" placeholder=" wind_direction_80m" required="required" /><br>
+           <input type="text" name="wind_speed_900mb " placeholder="wind_speed_900mb " required="required" /><br>
+           <input type="text" name=" wind_direction_900mb" placeholder=" wind_direction_900mb" required="required" /><br>
+           <input type="text" name="wind_gust_10m_above_gnd" placeholder="wind_gust_10m_above_gnd" required="required" /><br>
+           <input type="text" name=" angle_of_incidence" placeholder=" angle_of_incidence" required="required" /><br>
+           <input type="text" name="zenith " placeholder="zenith " required="required" /><br>
+           <input type="text" name="azimuth " placeholder="azimuth " required="required" /><br>
+           <input type="text" name="generated_power_kW" placeholder="generated_power_kW" required="required" /><br>
+         
+   
+   
+   
+           <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+       </form>
+    <h2>
+       THE SOLAR POWER Prediction is {{result}}
+    </h2>
+   <body>
+</html>
